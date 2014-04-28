@@ -49,7 +49,7 @@ def set_num_of_games():
             print "Come on, more than 2!"
             continue
         
-        # If it's 25 games or more, let's check to make sure the user wants to 
+        # If num_of_games is a lot, let's check to make sure the user wants to 
         # keep playing that many games.
         if num_of_games > 15:
             
