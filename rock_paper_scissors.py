@@ -13,7 +13,7 @@ def set_num_of_games():
     
     while not finished:
     
-        num_of_games = raw_input("How many games do you want to play?  "
+        num_of_games = input("How many games do you want to play?  "
                                     "Give me an odd number greater than 2! ")
                                     
         # Is it an number?
@@ -28,25 +28,25 @@ def set_num_of_games():
                 
                 # If it's not an int, then check if it's a float
                 float(num_of_games)
-                print "That's not a whole number!  We need a whole number."
+                print("That's not a whole number!  We need a whole number.")
                 continue
     
             except:
             
                 # If it's not an int, and it's not a float, then it's text
-                print "That's not a number at all!"
+                print("That's not a number at all!")
                 continue            
                 
         # Is it an odd number?
         if num_of_games % 2 == 0:
         
-            print "That's not an odd number!"
+            print("That's not an odd number!")
             continue
         
         # We want at least three games
         if num_of_games == 1:
         
-            print "Come on, more than 2!"
+            print("Come on, more than 2!")
             continue
         
         # If num_of_games is a lot, let's check to make sure the user wants to 
@@ -57,7 +57,7 @@ def set_num_of_games():
             answer_valid = False
             
             while not answer_valid:
-                answer = raw_input("That's a lot of games! "
+                answer = input("That's a lot of games! "
                             "Are you sure you want to play that many? (yes or no) ")
             
                 # If yes...
@@ -73,7 +73,7 @@ def set_num_of_games():
                 # If something other than yes or not, try again.
                 else:
                     
-                    print "Not a valid answer!  Sorry!"
+                    print("Not a valid answer!  Sorry!")
                     answer_valid = False
         
         # If we've made it this far, then we've got a valid number of games
@@ -85,7 +85,7 @@ def set_num_of_games():
     num_of_wins = int(math.ceil(num_of_games / 2.0))
     
     # Let's get started!
-    print "Great!  Can you win %s out of %s games?" % (num_of_wins, num_of_games)
+    print("Great!  Can you win %s out of %s games?" % (num_of_wins, num_of_games))
     
     # Return the results
     return num_of_wins, num_of_games
@@ -104,7 +104,7 @@ def rock_paper_scissors(num_of_wins, num_of_games):
     
     # Sleeps make it seem a bit more dramatic.  Why not?
     time.sleep(1)
-    print '(Tip - at any time, type "options" to see available options.)'
+    print('(Tip - at any time, type "options" to see available options.)')
     time.sleep(1)
     
     # Set your flag for the while loops
@@ -121,7 +121,7 @@ def rock_paper_scissors(num_of_wins, num_of_games):
         #print "Hint - the computer's answer is %s." % computer_answer
 
         # Get the user's answer
-        user_answer = raw_input('Rock, Paper, or Scissors? ')
+        user_answer = input('Rock, Paper, or Scissors? ')
     
         # Set it to lowercase to make it easier to compare against
         user_answer = user_answer.lower()
@@ -129,7 +129,7 @@ def rock_paper_scissors(num_of_wins, num_of_games):
         # In a real game, if both people have the same answer, it nullifies the round.  
         # So here we just try again
         if user_answer == computer_answer:
-            print "Same answer, try again."
+            print("Same answer, try again.")
     
         # Answer comparisons.  For each user answer, no matter who wins, 
         # we increment that winner's score by one.  We also increment the 
@@ -138,49 +138,49 @@ def rock_paper_scissors(num_of_wins, num_of_games):
         # Rock
         elif user_answer == 'rock':
     
-            game_count = game_count + 1
+            game_count += 1
     
             if computer_answer == 'scissors':
-                print "Computer's answer is %s.  You WIN this round!" % (computer_answer)
-                user_wins = user_wins + 1
+                print("Computer's answer is %s.  You WIN this round!" % (computer_answer))
+                user_wins += 1
         
             elif computer_answer == 'paper':
-                print "Computer's answer is %s.  You loose this round..." % (computer_answer)
-                computer_wins = computer_wins + 1
+                print("Computer's answer is %s.  You lose this round..." % (computer_answer))
+                computer_wins += 1
     
         # Paper
         elif user_answer == 'paper':
     
-            game_count = game_count + 1
+            game_count += 1
     
             if computer_answer == 'rock':
-                print "Computer's answer is %s.  You WIN this round!" % (computer_answer)
-                user_wins = user_wins + 1
+                print("Computer's answer is %s.  You WIN this round!" % (computer_answer))
+                user_wins += 1
     
             elif computer_answer == 'scissors':
-                print "Computer's answer is %s.  You loose this round..." % (computer_answer)
-                computer_wins = computer_wins + 1
+                print("Computer's answer is %s.  You lose this round..." % (computer_answer))
+                computer_wins += 1
         
         # Scissors
         elif user_answer == 'scissors':
 
-            game_count = game_count + 1
+            game_count += 1
     
             if computer_answer == 'paper':
-                print "Computer's answer is %s.  You WIN this round!" % (computer_answer)
-                user_wins = user_wins + 1
+                print("Computer's answer is %s.  You WIN this round!" % (computer_answer))
+                user_wins += 1
         
             elif computer_answer == 'rock':
-                print "Computer's answer is %s.  You loose this round..." % (computer_answer)
-                computer_wins = computer_wins + 1
+                print("Computer's answer is %s.  You lose this round..." % (computer_answer))
+                computer_wins += 1
     
         # Also included is an options menu. Cleaner to not list these out each time,
         # but only show them when the user requests them
         elif user_answer == 'options':
     
-            print "'exit' - exit the game."
-            print "'score' - tells you what the current score is."
-            print "'count' - tells you what the game count is."
+            print ("'exit' - exit the game.")
+            print("'score' - tells you what the current score is.")
+            print("'count' - tells you what the game count is.")
     
         # Need to have the ability to exit
         elif user_answer == 'exit':
@@ -190,13 +190,13 @@ def rock_paper_scissors(num_of_wins, num_of_games):
         
             # While the answer to "do i want to quit" is not valid, keep asking
             while not answer_valid:
-                answer = raw_input("Are you sure? (yes or no) " )
+                answer = input("Are you sure? (yes or no) " )
         
                 # If yes...
                 if answer.lower() in ['yes','y']:
                 
                     # Exit this loop and set game_finished to true, ending the game
-                    print "Bye!"
+                    print("Bye!")
                     game_finished = True
                     break
             
@@ -209,36 +209,36 @@ def rock_paper_scissors(num_of_wins, num_of_games):
                 # If something other than yes or not, try again.
                 else:
                 
-                    print "Not a valid answer!  Sorry!"
+                    print("Not a valid answer!  Sorry!")
                     answer_valid = False
         
         # What's the score?  Simple command here.
         elif user_answer == 'score':
     
-            print "You: %s" % user_wins
-            print "CPU: %s" % computer_wins
+            print("You: %s" % user_wins)
+            print("CPU: %s" % computer_wins)
     
         # How long have we been playing?
         elif user_answer == 'count':
     
-            print "Playing game %s of %s." % (game_count +  1, num_of_games)
+            print("Playing game %s of %s." % (game_count +  1, num_of_games))
     
         # Finally, if we can't parse what the user gave, then try again.
         else:
     
-            print "Not a valid answer!  Try again!"
+            print("Not a valid answer!  Try again!")
     
         # If someone wins, end the game
         if user_wins == num_of_wins:
         
-            print "You win!"
-            print "Final score - You: %s, CPU %s." % (user_wins, computer_wins)
+            print("You win!")
+            print("Final score - You: %s, CPU %s." % (user_wins, computer_wins))
             break
         
         elif computer_wins == num_of_wins:
         
-            print "You loose!"
-            print "Final score - You: %s, CPU %s." % (user_wins, computer_wins)
+            print("You lose!")
+            print("Final score - You: %s, CPU %s." % (user_wins, computer_wins))
             break
     
 
